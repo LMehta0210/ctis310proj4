@@ -1,5 +1,6 @@
 package edu.guilford;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ComputerSortSearch 
@@ -18,12 +19,18 @@ public class ComputerSortSearch
             computers[i] = new Computer();
         }
 
+        //print out unsorted array
+        System.out.println("Unsorted Array: " + Arrays.toString(computers));
+
         //Time how long it takes to sort the array using selection sort
         long startTime = System.nanoTime();
         CoreClockSortAndSearch.selectionSort(computers);
         long endTime = System.nanoTime();
         long duration = (endTime - startTime);
-        System.out.println("Selection sort took " + (duration/1.e6) + " nanoseconds to sort " + maxComputers + " computers.");
+        System.out.println("\nSelection sort took " + (duration/1.e6) + " milliseconds to sort " + maxComputers + " computers.");
+
+        //print out sorted array
+        System.out.println("\nSorted Array: " + Arrays.toString(computers));
 
         //shuffle the array for next test
         shuffle(computers);
@@ -32,21 +39,21 @@ public class ComputerSortSearch
         CoreClockSortAndSearch.quickSort(computers);
         endTime = System.nanoTime();
         duration = (endTime - startTime);
-        System.out.println("Quick sort took " + (duration/1.e6) + " nanoseconds to sort " + maxComputers + " computers.");
+        System.out.println("\nQuick sort took " + (duration/1.e6) + " milliseconds to sort " + maxComputers + " computers.");
 
         //shuffle the array for next test
         shuffle(computers);
         //search for specific core clock
-        System.out.println("What core clock would you like to search for?");
+        System.out.println("\nWhat core clock would you like to search for?");
         double searchClock = scan.nextDouble();
         startTime = System.nanoTime();
         int index = CoreClockSortAndSearch.linearSearch(computers, searchClock);
         endTime = System.nanoTime();
         duration = (endTime - startTime);
         if(index == -1){
-            System.out.println("Linear search took " + (duration/1.e6) + " nanoseconds to search " + maxComputers + " computers and did not find a computer with a core clock of " + searchClock + ".");
+            System.out.println("\nLinear search took " + (duration/1.e6) + " milliseconds to search " + maxComputers + " computers and did not find a computer with a core clock of " + searchClock + ".");
         } else {
-            System.out.println("Linear search took " + (duration/1.e6) + " nanoseconds to search " + maxComputers + " computers and found a computer with a core clock of " + searchClock + " at index " + index + ".");
+            System.out.println("\nLinear search took " + (duration/1.e6) + " milliseconds to search " + maxComputers + " computers and found a computer with a core clock of " + searchClock + " at index " + index + ".");
         }
 
         //quick sort array for binary search test
@@ -56,9 +63,9 @@ public class ComputerSortSearch
         endTime = System.nanoTime();
         duration = (endTime - startTime);
         if(index == -1){
-            System.out.println("Binary search took " + (duration/1.e6) + " nanoseconds to search " + maxComputers + " computers and did not find a computer with a core clock of " + searchClock + ".");
+            System.out.println("\nBinary search took " + (duration/1.e6) + " milliseconds to search " + maxComputers + " computers and did not find a computer with a core clock of " + searchClock + ".");
         } else {
-            System.out.println("Binary search took " + (duration/1.e6) + " nanoseconds to search " + maxComputers + " computers and found a computer with a core clock of " + searchClock + " at index " + index + ".");
+            System.out.println("\nBinary search took " + (duration/1.e6) + " milliseconds to search " + maxComputers + " computers and found a computer with a core clock of " + searchClock + " at index " + index + ".");
         }
 
     }

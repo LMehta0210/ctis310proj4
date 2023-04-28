@@ -31,7 +31,9 @@ public class Computer {
         //set the core count
         this.coreCount = rand.nextInt(8) + 1;
         //set the core clock
-        this.coreClock = rand.nextDouble()*4.9 + .1;
+        //this.coreClock = rand.nextDouble()*4.9 + .1;
+        this.coreClock = (rand.nextInt(50) + 1)*.1;
+        
         //set the ram
         this.ram = (rand.nextInt(4) + 1) * 4;
         //set the ram speed
@@ -142,10 +144,11 @@ public class Computer {
     //toString
     @Override
     public String toString() {
-        return "Computer [availableStorage=" + availableStorage + ", cPUString=" + cPUString + ", coreClock=" + coreClock
+        /*return "Computer [availableStorage=" + availableStorage + ", cPUString=" + cPUString + ", coreClock=" + coreClock
                 + ", coreCount=" + coreCount + ", gPUString=" + gPUString + ", hasSSD=" + hasSSD + ", isIntel=" + isIntel
                 + ", operatingSystem=" + operatingSystem + ", ram=" + ram + ", ramSpeed=" + ramSpeed + ", sSDSize="
-                + sSDSize + "]";
+                + sSDSize + "]";*/
+        return "Computer Core Clock: " + String.format( "%.1f", this.coreClock) + " GHz";
     }
 
 
