@@ -32,7 +32,7 @@ public class Computer {
         this.coreCount = rand.nextInt(8) + 1;
         //set the core clock
         //this.coreClock = rand.nextDouble()*4.9 + .1;
-        this.coreClock = (rand.nextInt(50) + 1)*.1;
+        this.coreClock = (rand.nextInt(50) + 1)/10.0;
         
         //set the ram
         this.ram = (rand.nextInt(4) + 1) * 4;
